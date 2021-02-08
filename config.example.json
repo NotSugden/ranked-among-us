@@ -1,0 +1,10 @@
+{
+	"token": "",
+	"database": {
+		"host": "localhost",
+		"user": "root",
+		"password": "password",
+		"database": "among_us_ranked"
+	},
+	"category_id": ""
+}
