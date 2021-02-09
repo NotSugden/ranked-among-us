@@ -4,6 +4,7 @@ const client = new RankedClient(require('./config.json'), {
 	allowedMentions: {
 		parse: []
 	},
+	partials: ['MESSAGE', 'REACTION'],
 	presence: {
 		activity: {
 			name: 'Ranked Among Us'
