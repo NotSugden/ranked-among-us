@@ -18,6 +18,12 @@ const hasOwnProperty = (obj: object, prop: string) => Object.prototype.hasOwnPro
 export default class DatabaseManager {
 	public readonly options!: DatabaseOptions;
 
+	private _keepAliveTimeout: NodeJS.Timeout = setInterval(() => {
+		if (!this.connection) return;
+		this.connection.query('SELECT 1', error => {
+			if (error) console.error(error);
+		});
+	}, 60e3);
 	private connection: mysql.Connection | null = null;
 	public constructor(options: DatabaseOptions) {
 		Object.defineProperty(this, 'options', { value: options });
